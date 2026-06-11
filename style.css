@@ -246,7 +246,21 @@ p { color: var(--muted); }
   background: linear-gradient(180deg, white, #eefbf8);
   box-shadow: var(--shadow-md);
 }
-.hero-image { width: 100%; min-height: 470px; object-fit: cover; }
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 38%;
+  background: linear-gradient(180deg, transparent, rgba(7, 38, 50, .26));
+  pointer-events: none;
+}
+.hero-image {
+  display: block;
+  width: 100%;
+  min-height: 470px;
+  object-fit: cover;
+  object-position: center top;
+}
 .schedule-card {
   position: absolute;
   left: 24px;
@@ -708,7 +722,7 @@ p { color: var(--muted); }
   .hero-actions .btn { width: 100%; }
   .trust-row { grid-template-columns: 1fr; }
   .hero-card { border-radius: 30px; }
-  .hero-image { min-height: 350px; }
+  .hero-image { min-height: 350px; object-position: center top; }
   .schedule-card { position: static; margin: -72px 14px 14px; flex-direction: column; align-items: flex-start; }
   .floating-note { display: none; }
   .service-grid, .doctor-grid, .step-grid, .price-list { grid-template-columns: 1fr; }
