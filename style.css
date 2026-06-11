@@ -962,3 +962,170 @@ h1 {
     background: #ffffff;
   }
 }
+
+/* final mobile polish: compact header, smaller type, cleaner detail cards */
+@media (max-width: 640px) {
+  html { scroll-padding-top: 76px; }
+  body { font-size: 15px; }
+  .container { width: min(100% - 32px, var(--container)); }
+  .section-pad { padding-block: 56px; }
+  .section-pad-sm { padding-block: 42px; }
+
+  .site-header { background: rgba(255, 255, 255, .96); backdrop-filter: blur(12px); }
+  .nav { min-height: 74px; gap: 12px; }
+  .brand { gap: 10px; font-size: 15px; font-weight: 800; letter-spacing: -.045em; }
+  .brand-mark { width: 38px; height: 38px; border-radius: 13px; }
+  .brand-mark svg { width: 18px; height: 18px; }
+
+  .nav-toggle {
+    width: 44px;
+    height: 44px;
+    gap: 3px;
+    padding: 0;
+    border-radius: 14px;
+    box-shadow: 0 0 0 1px rgba(15, 31, 51, .08);
+  }
+  .nav-toggle span { width: 18px; height: 2px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translatey(5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translatey(-5px) rotate(-45deg); }
+  .nav-menu {
+    inset: 78px 16px auto;
+    z-index: 140;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 4px;
+    padding: 10px;
+    border-radius: 18px;
+    background: #ffffff;
+  }
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 650;
+    text-align: left;
+  }
+
+  .hero { padding-top: 38px; text-align: center; }
+  .hero::before { opacity: .65; }
+  .hero-grid { gap: 30px; }
+  .hero-copy { display: grid; justify-items: center; }
+  .hero .eyebrow { display: none; }
+  h1 {
+    max-width: 13.5ch;
+    margin-inline: auto;
+    margin-bottom: 18px;
+    font-size: clamp(34px, 9.6vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -.065em;
+    text-align: center;
+  }
+  .hero-lead {
+    max-width: 31ch;
+    margin-inline: auto;
+    margin-bottom: 28px;
+    font-size: 16px;
+    line-height: 1.58;
+    text-align: center;
+  }
+  .hero-actions { width: 100%; gap: 10px; justify-content: center; }
+  .hero-actions .btn {
+    width: min(100%, 328px);
+    min-height: 52px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .trust-row { display: none; }
+  .hero-card { border-radius: 22px; }
+  .hero-image { min-height: 320px; object-position: center top; }
+  .schedule-card { margin: -54px 12px 12px; padding: 14px; border-radius: 17px; }
+  .mini-label { font-size: 11px; }
+  .schedule-card strong { font-size: 15px; }
+  .mini-link { font-size: 14px; }
+
+  h2 { font-size: clamp(25px, 7vw, 32px); line-height: 1.12; letter-spacing: -.045em; }
+  h3 { font-size: 16px; letter-spacing: -.02em; }
+  .section-head { margin-bottom: 28px; }
+  .section-head.left { text-align: left; }
+  .section-head p,
+  .page-hero-card p,
+  .service-card p,
+  .problem-list p,
+  .step-card p,
+  .doctor-card p,
+  .testimonial-card p,
+  .faq-answer p,
+  .site-footer p { font-size: 15px; line-height: 1.58; }
+  .eyebrow { display: none; }
+
+  .page-hero { padding-top: 34px; }
+  .page-hero::before { opacity: .45; }
+  .page-hero-grid { gap: 22px; }
+  .page-hero h1 { max-width: 100%; font-size: clamp(28px, 7.7vw, 36px); line-height: 1.12; text-align: left; }
+  .page-hero .hero-actions .btn { width: 100%; }
+  .page-hero-card {
+    padding: 18px;
+    border: 0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15, 31, 51, .08), 0 14px 34px rgba(15, 31, 51, .06);
+  }
+  .page-hero-card span {
+    margin-bottom: 10px;
+    padding: 0;
+    background: transparent;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  .page-hero-card strong { margin-bottom: 8px; font-size: 21px; line-height: 1.16; letter-spacing: -.035em; }
+
+  .problem-list article,
+  .service-card,
+  .doctor-card,
+  .testimonial-card,
+  .faq-item,
+  .final-card { border-radius: 20px; box-shadow: 0 0 0 1px rgba(15, 31, 51, .07), 0 12px 28px rgba(15, 31, 51, .05); }
+  .problem-list article,
+  .service-card,
+  .doctor-card,
+  .testimonial-card { padding: 18px; }
+  .card-bottom { gap: 8px; }
+  .card-bottom a { font-size: 14px; }
+
+  .contact-list { gap: 10px; margin-top: 20px; }
+  .contact-list p {
+    display: block;
+    padding: 14px 16px;
+    border: 0;
+    border-radius: 17px;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15, 31, 51, .08), 0 10px 24px rgba(15, 31, 51, .045);
+  }
+  .contact-list strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #7a8794;
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 750;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .contact-list span { display: block; color: var(--navy); font-size: 15px; line-height: 1.45; word-break: break-word; }
+  .location .hero-actions .btn { width: 100%; }
+  .map-card { min-height: auto; border-radius: 22px; }
+  .map-canvas { height: 260px; }
+  .map-label { max-width: calc(100% - 40px); padding: 12px 14px; border-radius: 16px; }
+  .map-label strong { font-size: 14px; }
+  .map-label small { font-size: 12px; }
+
+  .site-footer { padding-top: 48px; border-radius: 28px 28px 0 0; }
+  .footer-grid { gap: 28px; }
+  .footer-brand .brand-mark { width: 34px; height: 34px; }
+}

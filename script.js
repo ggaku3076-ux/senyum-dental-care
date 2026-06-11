@@ -71,14 +71,26 @@ faqItems.forEach((item) => {
   });
 });
 
-const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const normalizePagePath = (value) => {
+  const url = new URL(value || "/", window.location.origin);
+  let pathname = url.pathname
+    .replace(/\/index\.html$/i, "/")
+    .replace(/\.html$/i, "/")
+    .replace(/\/+/g, "/");
+
+  if (pathname !== "/") pathname = pathname.replace(/\/$/, "") + "/";
+  return pathname || "/";
+};
+
+const currentPage = normalizePagePath(window.location.pathname);
 const navLinks = document.querySelectorAll(".nav-menu a");
 
 navLinks.forEach((link) => {
   const href = link.getAttribute("href");
   if (!href || href.startsWith("#")) return;
-  const linkPage = href.split("#")[0];
-  const isActive = linkPage === currentPage || (currentPage === "" && linkPage === "index.html");
+
+  const linkPage = normalizePagePath(href);
+  const isActive = linkPage === currentPage;
   link.classList.toggle("is-active", isActive);
   if (isActive) link.setAttribute("aria-current", "page");
 });
