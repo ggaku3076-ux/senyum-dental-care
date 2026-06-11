@@ -646,6 +646,9 @@ p { color: var(--muted); }
 .final-card > .eyebrow {
   display: none !important;
 }
+.promo-card .eyebrow {
+  display: none !important;
+}
 
 .site-footer { padding: 54px 0 26px; background: #092f2d; color: white; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr .8fr 1fr; gap: 32px; }
