@@ -1600,13 +1600,23 @@ body {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: relative !important;
+    z-index: 5;
+    overflow: visible !important;
     margin-top: 0;
     padding: 42px 0 24px;
     border-radius: 24px 24px 0 0;
     background: #092f2d !important;
     color: #ffffff !important;
   }
+  .site-footer *,
+  .site-footer *::before,
+  .site-footer *::after {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
   .site-footer .container {
+    display: block !important;
     width: min(100% - 32px, var(--container));
   }
   .footer-grid {
@@ -1629,10 +1639,17 @@ body {
   .site-footer p,
   .site-footer a {
     display: block !important;
+    position: static !important;
     margin-bottom: 8px;
     color: rgba(255, 255, 255, .78) !important;
     font-size: 15px;
     line-height: 1.55;
+  }
+  .site-footer .brand {
+    display: inline-flex !important;
+  }
+  .site-footer .brand span {
+    display: inline-flex !important;
   }
   .footer-bottom {
     display: block !important;
