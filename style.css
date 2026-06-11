@@ -24,7 +24,11 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+  -webkit-tap-highlight-color: transparent;
+}
 body {
   margin: 0;
   font-family: var(--font);
@@ -34,11 +38,19 @@ body {
   color: var(--ink);
   line-height: 1.6;
   text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body.menu-open { overflow: hidden; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
+a,
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 .container { width: min(100% - 32px, var(--container)); margin-inline: auto; }
 .section-pad { padding-block: var(--section); }
 .section-pad-sm { padding-block: var(--section-sm); }
@@ -126,6 +138,10 @@ button, input { font: inherit; }
   text-transform: capitalize;
 }
 .nav-toggle { display: none; }
+.nav-toggle span {
+  display: block;
+  transform-origin: center;
+}
 
 .btn {
   min-height: 48px;
@@ -1132,4 +1148,170 @@ h1 {
   .site-footer { padding-top: 48px; border-radius: 28px 28px 0 0; }
   .footer-grid { gap: 28px; }
   .footer-brand .brand-mark { width: 34px; height: 34px; }
+}
+
+/* interaction polish: cleaner mobile menu button and lighter motion */
+@media (hover: none) {
+  a:hover,
+  .btn:hover,
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .nav-toggle {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(15, 31, 51, .08);
+    background: linear-gradient(180deg, #ffffff, #f7fbff);
+    box-shadow: 0 8px 20px rgba(15, 31, 51, .08);
+    transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    z-index: -1;
+    border-radius: 12px;
+    background: rgba(15, 31, 51, .06);
+    opacity: 0;
+    transform: scale(.82);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .nav-toggle:active {
+    transform: scale(.96);
+  }
+  .nav-toggle[aria-expanded="true"] {
+    background: #f8fafc;
+    box-shadow: 0 8px 18px rgba(15, 31, 51, .10);
+  }
+  .nav-toggle[aria-expanded="true"]::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .nav-toggle span {
+    width: 21px;
+    height: 2px;
+    flex: 0 0 2px;
+    border-radius: 999px;
+    background: #0f1f33;
+    box-shadow: none;
+    transition: transform .22s cubic-bezier(.2, .8, .2, 1), opacity .16s ease, width .18s ease;
+    will-change: transform, opacity;
+  }
+  .nav-toggle span:nth-child(2) {
+    width: 16px;
+    margin-left: 5px;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    width: 22px;
+    transform: translatey(6px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: translatex(8px);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    width: 22px;
+    transform: translatey(-6px) rotate(-45deg);
+  }
+  .nav-menu {
+    will-change: transform, opacity;
+    contain: layout paint;
+    transform: translate3d(0, -10px, 0) scale(.98);
+    transition: opacity .18s ease, transform .22s cubic-bezier(.2, .8, .2, 1);
+  }
+  .nav-menu.is-open {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  }
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"],
+  [tabindex] {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+  a:focus:not(:focus-visible),
+  button:focus:not(:focus-visible),
+  [role="button"]:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+  .nav-menu a:active,
+  .nav-menu a:focus:not(:focus-visible),
+  .btn:active,
+  .btn:focus:not(:focus-visible),
+  .nav-toggle:active,
+  .nav-toggle:focus:not(:focus-visible),
+  .faq-item button:active,
+  .faq-item button:focus:not(:focus-visible) {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  .nav-menu a:active,
+  .nav-menu a:focus:not(:focus-visible) {
+    color: var(--navy);
+    background: #f8fafc;
+  }
+  .nav-menu a.is-active:active,
+  .nav-menu a.is-active:focus:not(:focus-visible) {
+    color: var(--primary);
+    background: var(--primary-soft);
+  }
+  .nav-toggle:active,
+  .nav-toggle:focus:not(:focus-visible) {
+    background: #ffffff;
+    outline: none;
+  }
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+  .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .nav-toggle {
+    width: 46px;
+    height: 46px;
+    gap: 4px;
+    border-radius: 15px;
+  }
+  .nav-menu {
+    box-shadow: 0 12px 32px rgba(15, 31, 51, .10);
+  }
+  .hero::before,
+  .page-hero::before {
+    display: none;
+  }
+  .problem-list article,
+  .service-card,
+  .doctor-card,
+  .testimonial-card,
+  .faq-item,
+  .final-card,
+  .page-hero-card,
+  .contact-list p {
+    box-shadow: 0 0 0 1px rgba(15, 31, 51, .07), 0 8px 20px rgba(15, 31, 51, .04);
+  }
+  .btn,
+  .service-card,
+  .faq-item button span::after {
+    transition-duration: .16s;
+  }
 }

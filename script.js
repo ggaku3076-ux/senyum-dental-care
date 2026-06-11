@@ -15,6 +15,12 @@ const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
 if (navToggle && navMenu) {
+  const closeMenu = () => {
+    navToggle.setAttribute("aria-expanded", "false");
+    navMenu.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+  };
+
   navToggle.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!isOpen));
@@ -23,25 +29,25 @@ if (navToggle && navMenu) {
   });
 
   navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navToggle.setAttribute("aria-expanded", "false");
-      navMenu.classList.remove("is-open");
-      document.body.classList.remove("menu-open");
-    });
+    link.addEventListener("click", closeMenu);
   });
 }
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (event) => {
     const targetId = anchor.getAttribute("href");
     if (!targetId || targetId === "#") return;
 
-    const target = document.querySelector(targetId);
+    const target = document.getElementById(targetId.slice(1));
     if (!target) return;
 
     event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.pushState(null, "", targetId);
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      if (window.location.hash !== targetId) history.replaceState(null, "", targetId);
+    });
   });
 });
 
