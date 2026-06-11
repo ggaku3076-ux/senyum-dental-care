@@ -1662,3 +1662,71 @@ body {
     font-size: 13px;
   }
 }
+
+/* final requested color and footer cleanup */
+.btn-primary,
+.promo-card .btn-primary,
+.final-card .btn-primary,
+.nav-cta.btn-primary {
+  color: #075c53 !important;
+  background: linear-gradient(135deg, #d8fff3 0%, #b9f5df 100%) !important;
+  border-color: rgba(18, 140, 67, .16) !important;
+  box-shadow: 0 14px 30px rgba(22, 184, 111, .18) !important;
+}
+.btn-primary:hover,
+.promo-card .btn-primary:hover,
+.final-card .btn-primary:hover,
+.nav-cta.btn-primary:hover {
+  box-shadow: 0 18px 38px rgba(22, 184, 111, .24) !important;
+}
+.card-bottom .js-whatsapp,
+.mini-link.js-whatsapp {
+  color: #087a67;
+}
+.eyebrow::before,
+.promo-card .eyebrow::before,
+.final-card .eyebrow::before {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0a8ee8 0%, #57c7ff 100%) !important;
+  box-shadow: 0 8px 18px rgba(10, 142, 232, .22) !important;
+}
+.home-pages .service-card {
+  align-items: center;
+  text-align: center;
+}
+.home-pages .service-icon {
+  min-width: 88px;
+  justify-content: center;
+  margin-inline: auto;
+  text-align: center;
+}
+.home-pages .service-icon::before {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.home-pages .card-bottom {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.footer-bottom {
+  margin-top: 24px;
+  padding-top: 0;
+  border-top: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .home-pages .service-card {
+    align-items: center;
+  }
+  .home-pages .card-bottom {
+    align-items: center;
+    flex-direction: column;
+  }
+  .footer-bottom {
+    margin-top: 18px !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
+  }
+}
