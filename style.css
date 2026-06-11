@@ -979,6 +979,47 @@ h1 {
   }
 }
 
+/* homepage hero photo background */
+.hero {
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, .96) 24%, rgba(255, 255, 255, .72) 52%, rgba(255, 255, 255, .9) 82%, #ffffff 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, .5) 46%, #ffffff 100%),
+    url("/assets/The%20Benefits%20of%20Regular%20Dental%20Checkups%20-%20You_.jpeg") right center / cover no-repeat;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #ffffff 0%, transparent 18%, transparent 78%, #ffffff 100%),
+    linear-gradient(180deg, #ffffff 0%, transparent 22%, transparent 72%, #ffffff 100%);
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 981px) {
+  .hero {
+    background:
+      linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, .96) 34%, rgba(255, 255, 255, .56) 62%, rgba(255, 255, 255, .92) 100%),
+      linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, .36) 46%, #ffffff 100%),
+      url("/assets/The%20Benefits%20of%20Regular%20Dental%20Checkups%20-%20You_.jpeg") right 18% center / min(760px, 54vw) auto no-repeat;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, .88) 0%, rgba(255, 255, 255, .7) 38%, #ffffff 82%),
+      linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, .24) 42%, #ffffff 100%),
+      url("/assets/The%20Benefits%20of%20Regular%20Dental%20Checkups%20-%20You_.jpeg") center top / 100% auto no-repeat;
+  }
+}
+
 /* final mobile polish: compact header, smaller type, cleaner detail cards */
 @media (max-width: 640px) {
   html { scroll-padding-top: 76px; }
