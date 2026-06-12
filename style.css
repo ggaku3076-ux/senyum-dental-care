@@ -1002,7 +1002,7 @@ h1 {
 }
 .hero {
   min-height: calc(100svh - 78px);
-  background: url("/assets/hero-dental-generated.png") center center / cover no-repeat !important;
+  background: url("/assets/hero-dental-web.jpg") center center / cover no-repeat !important;
 }
 .hero::before,
 .hero::after {
@@ -1130,7 +1130,7 @@ body {
   min-height: calc(100svh - 78px);
   display: flex;
   align-items: center;
-  background: url("/assets/hero-dental-generated.png") center center / cover no-repeat !important;
+  background: url("/assets/hero-dental-web.jpg") center center / cover no-repeat !important;
 }
 .hero::after {
   display: none;
@@ -1149,14 +1149,14 @@ body {
 @media (min-width: 981px) {
   .hero {
     min-height: calc(100svh - 78px);
-    background: url("/assets/hero-dental-generated.png") center center / cover no-repeat !important;
+    background: url("/assets/hero-dental-web.jpg") center center / cover no-repeat !important;
   }
 }
 
 @media (max-width: 640px) {
   .hero {
     min-height: calc(100svh - 74px);
-    background: url("/assets/hero-dental-generated.png") center top / cover no-repeat !important;
+    background: url("/assets/hero-dental-web.jpg") center top / cover no-repeat !important;
   }
   .brand-mark::before {
     font-size: 11px;
@@ -1172,7 +1172,7 @@ body {
   background:
     linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, .96) 24%, rgba(255, 255, 255, .72) 52%, rgba(255, 255, 255, .9) 82%, #ffffff 100%),
     linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, .5) 46%, #ffffff 100%),
-    url("/assets/hero-dental-generated.png") right center / cover no-repeat;
+    url("/assets/hero-dental-web.jpg") right center / cover no-repeat;
 }
 .hero::after {
   content: "";
@@ -1194,7 +1194,7 @@ body {
     background:
       linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, .96) 34%, rgba(255, 255, 255, .56) 62%, rgba(255, 255, 255, .92) 100%),
       linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, .36) 46%, #ffffff 100%),
-      url("/assets/hero-dental-generated.png") right 18% center / min(760px, 54vw) auto no-repeat;
+      url("/assets/hero-dental-web.jpg") right 18% center / min(760px, 54vw) auto no-repeat;
   }
 }
 
@@ -1203,7 +1203,7 @@ body {
     background:
       linear-gradient(180deg, rgba(255, 255, 255, .88) 0%, rgba(255, 255, 255, .7) 38%, #ffffff 82%),
       linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, .24) 42%, #ffffff 100%),
-      url("/assets/hero-dental-generated.png") center top / 100% auto no-repeat;
+      url("/assets/hero-dental-web.jpg") center top / 100% auto no-repeat;
   }
 }
 
@@ -1742,7 +1742,7 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: url("/assets/backgrounddd.jpg") center center / cover no-repeat !important;
+  background: url("/assets/backgrounddd-web.jpg") center center / cover no-repeat !important;
 }
 .problem::before {
   content: none;
@@ -1766,10 +1766,58 @@ body {
 
 @media (max-width: 640px) {
   .problem {
-    background: url("/assets/backgrounddd.jpg") 55% center / cover no-repeat !important;
+    background: url("/assets/backgrounddd-web.jpg") 55% center / cover no-repeat !important;
   }
   .problem .section-head {
     padding: 18px;
     border-radius: 22px;
+  }
+}
+
+/* performance pass: lighter scroll and paint work */
+.site-header,
+.eyebrow,
+.schedule-card,
+.floating-note,
+.hero-copy,
+.problem .problem-list article {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.service-card,
+.doctor-card,
+.testimonial-card,
+.faq-item,
+.problem-list article,
+.price-list div,
+.page-hero-card,
+.final-card,
+.promo-card,
+.hero-card,
+.pricing-shell,
+.map-card,
+.contact-list p {
+  box-shadow: 0 0 0 1px rgba(15, 31, 51, .07), 0 8px 18px rgba(15, 31, 51, .04) !important;
+}
+.btn,
+.service-card,
+.nav-menu,
+.nav-toggle span,
+.faq-answer,
+.faq-item button span::after {
+  transition-duration: .12s !important;
+}
+
+@media (hover: none), (max-width: 640px) {
+  html {
+    scroll-behavior: auto;
+  }
+  .btn:hover,
+  .service-card:hover {
+    transform: none !important;
+  }
+  .hero-image,
+  .doctor-card img {
+    content-visibility: auto;
   }
 }
