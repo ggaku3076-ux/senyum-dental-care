@@ -1821,3 +1821,53 @@ body {
     content-visibility: auto;
   }
 }
+
+/* requested page imagery */
+.home-final-cta {
+  min-height: calc(100svh - 78px);
+  display: grid;
+  align-items: center;
+  background: url("/assets/asuuuu-web.jpg") center center / cover no-repeat;
+}
+.home-final-cta .final-card {
+  background: rgba(8, 45, 50, .82);
+  color: #ffffff;
+}
+.home-final-cta .final-card h2,
+.home-final-cta .final-card p {
+  color: #ffffff;
+}
+.price-hero {
+  min-height: calc(100svh - 78px);
+  display: grid;
+  align-items: center;
+  background: url("/assets/harga-web.jpg") center center / cover no-repeat;
+}
+.price-hero .section-head,
+.price-hero .page-hero-card {
+  background: rgba(6, 25, 43, .78);
+  color: #ffffff;
+}
+.price-hero .section-head h1,
+.price-hero .section-head p,
+.price-hero .page-hero-card strong,
+.price-hero .page-hero-card p {
+  color: #ffffff;
+}
+.price-hero .page-hero-card span {
+  background: rgba(185, 245, 223, .18);
+  color: #b9f5df;
+}
+
+@media (max-width: 640px) {
+  .home-final-cta,
+  .price-hero {
+    min-height: calc(100svh - 74px);
+  }
+  .home-final-cta {
+    background-position: 52% center;
+  }
+  .price-hero {
+    background-position: 42% center;
+  }
+}
