@@ -1845,18 +1845,21 @@ body {
 }
 .price-hero .section-head,
 .price-hero .page-hero-card {
-  background: rgba(6, 25, 43, .78);
+  background: transparent;
   color: #ffffff;
+  box-shadow: none !important;
 }
 .price-hero .section-head h1,
 .price-hero .section-head p,
 .price-hero .page-hero-card strong,
 .price-hero .page-hero-card p {
   color: #ffffff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .42);
 }
 .price-hero .page-hero-card span {
-  background: rgba(185, 245, 223, .18);
+  background: transparent;
   color: #b9f5df;
+  padding-inline: 0;
 }
 
 @media (max-width: 640px) {
