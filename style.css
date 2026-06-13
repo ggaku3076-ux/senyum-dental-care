@@ -1883,8 +1883,8 @@ body,
 button,
 input {
   font-family: var(--font);
-  font-style: italic;
-  font-weight: 100;
+  font-style: normal;
+  font-weight: 400;
 }
 h1,
 h2,
@@ -1899,8 +1899,7 @@ summary,
 button,
 input {
   font-family: inherit;
-  font-style: italic;
-  font-weight: 100;
+  font-style: normal;
 }
 .brand,
 .nav-menu a,
@@ -1913,7 +1912,27 @@ strong,
 .testimonial-card strong,
 .faq-item button,
 .footer-brand {
-  font-weight: 300;
+  font-weight: 700;
+}
+h1,
+h2,
+.hero-card strong,
+.page-hero-card strong,
+.final-card h2,
+.promo-card h2,
+.price-list strong,
+.stat strong {
+  font-weight: 800;
+}
+.section-head p,
+.hero-lead,
+.page-hero-card p,
+.service-card p,
+.doctor-card p,
+.testimonial-card p,
+.faq-answer,
+.footer-grid p {
+  font-weight: 400;
 }
 .site-header {
   background: transparent !important;
