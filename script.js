@@ -26,11 +26,68 @@ if (navToggle && navMenu) {
     navToggle.setAttribute("aria-expanded", String(!isOpen));
     navMenu.classList.toggle("is-open", !isOpen);
     document.body.classList.toggle("menu-open", !isOpen);
+    if (!isOpen) document.body.classList.remove("is-nav-hidden");
   });
 
   navMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
+}
+
+const siteHeader = document.querySelector(".site-header");
+const mobileNavQuery = window.matchMedia("(max-width: 768px)");
+
+if (siteHeader) {
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  const scrollDelta = 10;
+  const topSafeArea = 64;
+
+  const isMobileNav = () => mobileNavQuery.matches;
+  const isMobileMenuOpen = () => document.body.classList.contains("menu-open");
+
+  const revealNav = () => document.body.classList.remove("is-nav-hidden");
+  const hideNav = () => document.body.classList.add("is-nav-hidden");
+
+  const updateNavOnScroll = () => {
+    const currentScrollY = Math.max(window.scrollY, 0);
+    const scrollDifference = currentScrollY - lastScrollY;
+
+    if (!isMobileNav() || isMobileMenuOpen() || currentScrollY <= topSafeArea) {
+      revealNav();
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    if (Math.abs(scrollDifference) >= scrollDelta) {
+      if (scrollDifference > 0) {
+        hideNav();
+      } else {
+        revealNav();
+      }
+      lastScrollY = currentScrollY;
+    }
+
+    ticking = false;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateNavOnScroll);
+  }, { passive: true });
+
+  const handleMobileNavChange = () => {
+    revealNav();
+    lastScrollY = Math.max(window.scrollY, 0);
+  };
+
+  if (typeof mobileNavQuery.addEventListener === "function") {
+    mobileNavQuery.addEventListener("change", handleMobileNavChange);
+  } else if (typeof mobileNavQuery.addListener === "function") {
+    mobileNavQuery.addListener(handleMobileNavChange);
+  }
 }
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

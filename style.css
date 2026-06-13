@@ -1953,3 +1953,18 @@ h2,
     background: #ffffff;
   }
 }
+
+/* mobile scroll behavior: hide header while scrolling down, reveal on scroll up */
+@media (max-width: 768px) {
+  .site-header {
+    z-index: 120;
+    transform: translateY(0);
+    transition: transform 260ms ease, box-shadow 260ms ease;
+    will-change: transform;
+  }
+
+  body.is-nav-hidden:not(.menu-open) .site-header {
+    transform: translateY(-110%);
+    box-shadow: none !important;
+  }
+}
