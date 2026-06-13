@@ -417,6 +417,15 @@ p { color: var(--muted); }
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .service-card:hover { transform: translatey(-4px); border-color: rgba(15,118,110,.28); box-shadow: var(--shadow-md); }
+.service-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 18px;
+  border-radius: calc(var(--radius-md) - 8px);
+  background: #e8f4f1;
+}
 .service-icon {
   width: 48px;
   height: 48px;
