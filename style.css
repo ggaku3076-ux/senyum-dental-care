@@ -1874,3 +1874,63 @@ body {
     background-position: 42% center;
   }
 }
+
+/* requested typography and transparent navigation */
+:root {
+  --font: "Poppins", ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "segoe ui", sans-serif;
+}
+body,
+button,
+input {
+  font-family: var(--font);
+  font-style: italic;
+  font-weight: 100;
+}
+h1,
+h2,
+h3,
+p,
+a,
+span,
+strong,
+small,
+li,
+summary,
+button,
+input {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 100;
+}
+.brand,
+.nav-menu a,
+.btn,
+strong,
+.price-list strong,
+.stat strong,
+.doctor-card h3,
+.service-card h3,
+.testimonial-card strong,
+.faq-item button,
+.footer-brand {
+  font-weight: 300;
+}
+.site-header {
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+.nav-menu {
+  background: transparent;
+}
+.nav-toggle {
+  background: transparent;
+}
+@media (max-width: 640px) {
+  .site-header {
+    background: transparent !important;
+  }
+  .nav-menu {
+    background: #ffffff;
+  }
+}
