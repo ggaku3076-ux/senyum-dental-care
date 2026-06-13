@@ -466,9 +466,9 @@ p { color: var(--muted); }
 }
 .doctor-card img {
   width: 100%;
-  aspect-ratio: 1 / .82;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 18%;
   display: block;
   background: var(--surface-soft);
 }
