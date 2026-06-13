@@ -533,7 +533,8 @@ p { color: var(--muted); }
 .promo-card .eyebrow::before, .final-card .eyebrow::before { background: white; box-shadow: 0 0 0 6px rgba(255,255,255,.18); }
 
 .contact-list { display: grid; gap: 12px; margin-top: 26px; }
-.contact-list p {
+.contact-list p,
+.contact-map-link {
   display: grid;
   grid-template-columns: 130px 1fr;
   gap: 12px;
@@ -543,7 +544,21 @@ p { color: var(--muted); }
 }
 .contact-list strong { color: var(--navy); }
 .contact-list span { color: var(--muted); }
+.contact-map-link {
+  border-radius: 14px;
+  transition: color .16s ease, background .16s ease, padding-inline .16s ease;
+}
+.contact-map-link:hover,
+.contact-map-link:focus-visible {
+  padding-inline: 12px;
+  background: var(--primary-soft);
+}
+.contact-map-link:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, .35);
+  outline-offset: 3px;
+}
 .map-card {
+  display: block;
   overflow: hidden;
   min-height: 470px;
   border: 1px solid var(--line);
@@ -772,7 +787,8 @@ p { color: var(--muted); }
   .service-grid, .doctor-grid, .step-grid, .price-list { grid-template-columns: 1fr; }
   .service-card { min-height: auto; }
   .card-bottom { align-items: flex-start; flex-direction: column; }
-  .contact-list p { grid-template-columns: 1fr; gap: 2px; }
+  .contact-list p,
+  .contact-map-link { grid-template-columns: 1fr; gap: 2px; }
   .map-card { min-height: 370px; }
   .map-canvas { height: 315px; }
   .footer-grid { grid-template-columns: 1fr; }
@@ -1343,7 +1359,8 @@ body {
   .card-bottom a { font-size: 14px; }
 
   .contact-list { gap: 10px; margin-top: 20px; }
-  .contact-list p {
+  .contact-list p,
+  .contact-map-link {
     display: block;
     padding: 14px 16px;
     border: 0;
@@ -1530,7 +1547,8 @@ body {
   .faq-item,
   .final-card,
   .page-hero-card,
-  .contact-list p {
+  .contact-list p,
+  .contact-map-link {
     box-shadow: 0 0 0 1px rgba(15, 31, 51, .07), 0 8px 20px rgba(15, 31, 51, .04);
   }
   .btn,
@@ -1766,7 +1784,8 @@ body {
 .hero-card,
 .pricing-shell,
 .map-card,
-.contact-list p {
+.contact-list p,
+.contact-map-link {
   box-shadow: 0 0 0 1px rgba(15, 31, 51, .07), 0 8px 18px rgba(15, 31, 51, .04) !important;
 }
 .btn,
