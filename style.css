@@ -464,7 +464,14 @@ p { color: var(--muted); }
   border-radius: var(--radius-md);
   background: white;
 }
-.doctor-card img { width: 100%; aspect-ratio: 1 / .82; object-fit: cover; background: var(--surface-soft); }
+.doctor-card img {
+  width: 100%;
+  aspect-ratio: 1 / .82;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: var(--surface-soft);
+}
 .doctor-card div { padding: 22px; }
 .badge {
   display: inline-flex;
